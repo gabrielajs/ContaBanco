@@ -9,6 +9,7 @@ public class ContaTerminal {
 
 		cc.depositar(600);
 		cc.transferir(200, poupanca);
+        cc.depositar(100);
 		
 		cc.imprimirExtrato();
 		poupanca.imprimirExtrato();
