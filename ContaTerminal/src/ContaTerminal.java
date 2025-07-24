@@ -1,32 +1,16 @@
-import java.util.Scanner;
 
 public class ContaTerminal {
     public static void main(String[] args) throws Exception {
-        // Criação de variáveis
-        int numero;
-        String agencia;
-        String nomeCliente; 
-        float saldo;
+        Cliente maria = new Cliente();
+		maria.setNome("Maria");
+		
+		Conta cc = new ContaCorrente(maria);
+		Conta poupanca = new ContaPoupanca(maria);
 
-        Scanner scanner = new Scanner(System.in);
-
-            System.out.println("Por favor, digite o número da agencia: ");
-            agencia = scanner.nextLine();
-
-            System.out.println("Por favor, digite o número da conta: ");
-            numero = scanner.nextInt();
-            scanner.nextLine(); // Consumir a quebra de linha pendente
-
-            System.out.print("Por favor, digite o nome do cliente: ");
-            nomeCliente = scanner.nextLine();
-
-            System.out.println("Por favor, digite o saldo da conta: ");
-            saldo = scanner.nextFloat();
-
-        
-
-        System.out.println("Olá " + nomeCliente + ", obrigado por criar uma conta em nosso banco, sua agência é " + agencia + ", conta " + numero + " e seu saldo " + saldo + " já está disponível para saque");
-
-
+		cc.depositar(600);
+		cc.transferir(200, poupanca);
+		
+		cc.imprimirExtrato();
+		poupanca.imprimirExtrato();
     }
 }
